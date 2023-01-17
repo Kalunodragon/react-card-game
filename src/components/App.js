@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Card from "./Card";
 
 function App() {
   const [deck, setDeck] = useState([])
@@ -6,7 +7,7 @@ function App() {
 
   useEffect(() => {
     const values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
-    const suits = ["Hearts", "Diamonds", "Spades", "Clubs"];
+    const suits = ["♡", "♢", "♠", "♣"];
     const cards = [];
     for (let s = 0; s < suits.length; s++) {
       for (let v = 0; v < values.length; v++) {
@@ -30,12 +31,7 @@ function App() {
 
   const displayed = deck.map(card => {
     return (
-      <div 
-        key={`${card.value} ${card.suit}`}
-        className="card">
-        <h1>{card.value}</h1>
-        <h3>{card.suit}</h3>
-      </div>
+      <Card key={`${card.value} ${card.suit}`} info={card}/>
     )
   })
 
