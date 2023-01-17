@@ -1,0 +1,13 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 5px;
+  text-align: center;
+}
+
+.card {
+  border: 1px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: darkgray;
+}
