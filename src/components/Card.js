@@ -21,9 +21,6 @@ function Card({ info }){
   return (
     <div className={shown} onClick={handleClicked}>
       {cardInfo}
-      {/* <span className="card-value-suit top">{info.value}{info.suit}</span>
-      <span className="card-suit">{info.suit}</span>
-      <span className="card-value-suit bot">{info.value}{info.suit}</span> */}
     </div>
   )
 }
