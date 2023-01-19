@@ -1,0 +1,37 @@
+home screen is shown showing rules and if players are ready to play
+
+deck is shuffled and split into two decks
+these are then given to each player
+create seperate playing hands - 5 cards off the top of each deck respectivly
+  when a player is up have the hand show the current players hand
+    once a card is selected have the window confirm if thats the card they want to play
+    once confirmed have the card be played and then load the next player pass screen
+
+next player pass screen has a button that when clicked progresses to the next player
+  this then shows the hand of the next player with all the same options for the first player hand
+  once a card is seleced and confirmed then the show war screen comes up
+
+the Show war screen shows what player one decided to play and what player two decided to play
+  these cards are then compared and the player with the higher power wins the round and both cards are added to their deck
+    in the case of a tie "War" page is shown
+      the first player gets a chance to choose a second card from whats left of their hand
+      pass screen
+      the second player gets a chance to choose a second card fro whats left of their hand
+      cards are shown again and compared
+      
+      winner gets the 3 cards left in the losers hand and all cards on table.
+      in the case of a second war at this stage draw screen is show
+        all cards on table are returned to original player in a shuffled state to the bottom of their decks
+        5 new cards are drawn per player to replenish hand
+
+  after compare winner takes cards (these are added shuffeld to the bottom of the winner deck) hands are replenished back to 5 cards in hand
+
+  decks are checked to see that there are still cards playable from each deck
+    if yes then play continues
+    if no then player with more cards Wins the game
+      win screen with player is shown
+        total number of Battles/turns is shown
+        option to reset and play again is given
+          deck is reshuffled and redelt
+
+    if players dont play again have the credits shown and a button to take players back to the main home screen
