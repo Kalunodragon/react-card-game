@@ -37,7 +37,8 @@ function App() {
 
   return (
     <div>
-      <h1>Card Game</h1>
+      <h1>5 In The Hand: War!</h1>
+      <p>A card game designed and coded by Andrew Onulak</p>
       <button onClick={updateDeck}>New Deck {newDeck}</button>
       <div className="card-container">
         {displayed}
