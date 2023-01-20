@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
+import { Route, Switch } from "react-router-dom";
+import Home from "./Home";
+import Game from "./Game";
+
 
 function App() {
   const [deck, setDeck] = useState([])
@@ -40,9 +44,14 @@ function App() {
       <h1>5 In The Hand: War!</h1>
       <p>A card game designed and coded by Andrew Onulak</p>
       <button onClick={updateDeck}>New Deck {newDeck}</button>
-      <div className="card-container">
-        {displayed}
-      </div>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/Game">
+          <Game />
+        </Route>
+      </Switch>
     </div>
   )
 }
