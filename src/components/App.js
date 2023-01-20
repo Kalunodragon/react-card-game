@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Card from "./Card";
 import { Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import Game from "./Game";
@@ -26,18 +25,13 @@ function App() {
         );
       } 
     }
+    console.log(cards)
     setDeck([...cards].sort(()=> Math.random() > .5 ? 1 : -1))
   }, [newDeck])
 
   function updateDeck(){
     setNewDeck(v => v + 1)
   }
-
-  const displayed = deck.map(card => {
-    return (
-      <Card key={`${card.value} ${card.suit}`} info={card}/>
-    )
-  })
 
   return (
     <div>
@@ -49,7 +43,7 @@ function App() {
           <Home />
         </Route>
         <Route exact path="/Game">
-          <Game />
+          <Game deck={deck}/>
         </Route>
       </Switch>
     </div>

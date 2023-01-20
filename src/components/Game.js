@@ -1,9 +1,21 @@
 import React from "react";
+import Card from "./Card";
 
-function Game(){
+function Game({ deck }){
+
+  const displayed = deck.map(card => {
+    return (
+      <Card key={`${card.value} ${card.suit}`} info={card}/>
+    )
+  })
 
   return(
-    <h1>Game Test</h1>
+    <>
+      <h1>Game Test</h1>
+      <div className="card-container">
+        {displayed}
+      </div>
+    </>
   )
 }
 
