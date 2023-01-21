@@ -7,6 +7,7 @@ import Game from "./Game";
 function App() {
   const [deck, setDeck] = useState([])
   const [newDeck, setNewDeck] = useState(0)
+  const [players, setPlayers] = useState(0)
 
   useEffect(() => {
     const values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
@@ -33,6 +34,10 @@ function App() {
     setNewDeck(v => v + 1)
   }
 
+  function playerUpdate(playerNumer){
+    setPlayers(playerNumer)
+  }
+
   return (
     <div>
       <h1>5 In The Hand: War!</h1>
@@ -40,7 +45,7 @@ function App() {
       <button onClick={updateDeck}>New Deck {newDeck}</button>
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home onHandleClick={playerUpdate} players={players}/>
         </Route>
         <Route exact path="/Game">
           <Game deck={deck}/>

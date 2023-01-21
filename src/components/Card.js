@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import CardBack from "../FreeStockCardImage.jpg"
 
 function Card({ info }){
-  const [clicked, setClicked] = useState(false)
+  const [clicked, setClicked] = useState(true)
 
   const shown = clicked === false ? "card hidden" : `card ${info.suit}`
 

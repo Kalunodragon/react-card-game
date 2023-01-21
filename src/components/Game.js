@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 
 function Game({ deck }){
-
+  debugger
   const displayed = deck.map(card => {
     return (
       <Card key={`${card.value} ${card.suit}`} info={card}/>
