@@ -55,26 +55,4 @@ function App() {
   )
 }
 
-{/* <>
-      <h1 id="main-header">D&D Equipment Tracker Tool</h1>
-      <Navbar />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/Inventory">
-          <Inventory items={bagList}/>
-        </Route>
-        <Route exact path="/Form">
-          <Form onHandleSubmit={handlePost}/>
-        </Route>
-        <Route exact path="/EquipmentList">
-          <FullEquipmentList items={itemList}/>
-        </Route>
-        <Route exact path="/RandomTreasure">
-          <RandomTreasure items={itemList}/>
-        </Route>
-      </Switch>
-    </> */}
-
 export default App;
