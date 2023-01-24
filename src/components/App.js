@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Home from "./Home";
 import Game from "./Game";
-
 
 function App() {
   const [deck, setDeck] = useState([])
   const [newDeck, setNewDeck] = useState(0)
   const [players, setPlayers] = useState(0)
+  const history = useHistory()
 
   useEffect(() => {
     const values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
@@ -33,9 +33,10 @@ function App() {
   function updateDeck(){
     setNewDeck(v => v + 1)
   }
-
+  
   function playerUpdate(playerNumer){
     setPlayers(playerNumer)
+    history.push("/Game")
   }
 
   return (
@@ -48,7 +49,7 @@ function App() {
           <Home onHandleClick={playerUpdate} players={players}/>
         </Route>
         <Route exact path="/Game">
-          <Game deck={deck}/>
+          <Game deck={deck} players={players}/>
         </Route>
       </Switch>
     </div>
