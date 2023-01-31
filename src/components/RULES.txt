@@ -19,6 +19,10 @@ or used by someone else, this will help us know what everything is doing!
 Before adding new Components make sure we dont have a component that already does what
 is about to be added. Try and reuse components when possible.
 
+If there are parts that you think you would be really good at or have a really good idea
+for, please speak up! This is a positive environment, we should all support the ideas of
+one another!
+
 
 
 These are just ground rules, these may change as time goes on!
