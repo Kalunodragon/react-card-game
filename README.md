@@ -8,8 +8,8 @@ In the project directory, you can run:
 
 ### `npm start`
 
-This should open a browser window with the project shown in it. If it doens't \
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This should open a browser window with the project shown in it. If it doens't open: \
+Use this URL -> [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.
 
