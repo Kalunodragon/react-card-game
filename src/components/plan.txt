@@ -48,19 +48,21 @@ ________________________________________________________________________________
     | ONULAK | DONE | App.js
 
     LIST BELOW:
+      If there are questions please ask, also refer to the plan listed above for possible more info.
+      If needed please rewrite clerification of plan in with the plan.
       Please remember to update list while working, commit and push often, update discord about tasks that you are working on!
       This project might take a bit of time and will be a Async Project! Meaning people can work on it in their time.
       Together we can get this done!
 
     | | | Fill in rules in Home.js
+    | | | Deck is split into two decks, Preferably every other card from the shuffle
+    | | | Hands are delt top(first) 5 cards from respective decks
+    | | | Card can be played onto playing feild face down (card will be shown in show war screen)
+    | | | Card selection, allow confirmation before sumbit. If another card is picked first selection is brought back to hand
+    | | | At beggining of turn hand is brought back up to 5 cards using the top(first) x number of cards
+    | | | Next Player Pass Screen ("Player x are you ready to go?" button to advance)
+    | | | Comparing Function that checks cards against one another, Handles War and winning player getting these new cards
     | | | 
-    | | |
-    | | |
-    | | |
-    | | |
-    | | |
-    | | |
-    | | |
     | | |
     | | |
     | | |
