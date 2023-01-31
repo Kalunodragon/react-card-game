@@ -1,3 +1,5 @@
+TO-DO List at bottom of this file... for now
+
 home screen is shown showing rules and if players are ready to play
 
 deck is shuffled and split into two decks
@@ -35,3 +37,30 @@ the Show war screen shows what player one decided to play and what player two de
           deck is reshuffled and redelt
 
     if players dont play again have the credits shown and a button to take players back to the main home screen
+
+___________________________________________________________________________________________________
+
+    TO-DO LIST
+    | NAME | CURRENT STATE | TASK
+
+    examples:
+    | ONULAK | WIP | Building Out Hand Component
+    | ONULAK | DONE | App.js
+
+    LIST BELOW:
+      Please remember to update list while working, commit and push often, update discord about tasks that you are working on!
+      This project might take a bit of time and will be a Async Project! Meaning people can work on it in their time.
+      Together we can get this done!
+
+    | | | Fill in rules in Home.js
+    | | | 
+    | | |
+    | | |
+    | | |
+    | | |
+    | | |
+    | | |
+    | | |
+    | | |
+    | | |
+    | | |
