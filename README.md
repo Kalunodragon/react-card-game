@@ -25,4 +25,4 @@ allow the player to choose how hard of a computer they would like to play agains
 
 ## Current Collaborators
 
-[Andrew Onulak](https://www.linkedin.com/in/andrew-onulak-b8423682/)
+[Andrew Onulak](www.linkedin.com/in/andrew-onulak)
