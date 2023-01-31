@@ -1,0 +1,24 @@
+If any component or item needs to be deleted please check with anonter group member
+before deleting the component. Some parts might need to be accessed by another
+component and if deleted it might break something else.
+COMMENT OUT CODE FIRST! - DELETE only once you are sure it works without it!
+
+Commit and push often! This will keep a good log of what is going on in case things
+break as we are coding.
+
+Update the discord and TO-DO list often! Especially if you are working on a few different
+parts at the same time! There will most likely be a large number of things needed
+for this full project to be completed!
+
+Help one another out where we can! This is as much a learning expeariance as much as
+it is a fun project! So help where you can!
+
+Have code be readable! Leave Comments if you have to! Parts might need to be accessed
+or used by someone else, this will help us know what everything is doing!
+
+Before adding new Components make sure we dont have a component that already does what
+is about to be added. Try and reuse components when possible.
+
+
+
+These are just ground rules, these may change as time goes on!
