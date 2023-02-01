@@ -1,3 +1,6 @@
+Please update the README.md file to have you name added to the Current Collaborators section.
+If you want it linked to your LinkedIn just follow the format of [name](link url)
+
 If any component or item needs to be deleted please check with anonter group member
 before deleting the component. Some parts might need to be accessed by another
 component and if deleted it might break something else.
