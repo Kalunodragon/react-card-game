@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 
 
 function Skipped(){
+  const history = useHistory()
 
   return(
     <>
