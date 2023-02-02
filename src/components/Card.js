@@ -11,7 +11,7 @@ function Card({ info }){
   }
 
   const cardInfo = clicked === false ?
-    <img src={CardBack} alt="Card-Back"/> :
+    <img src={CardBack} alt="Back of the card"/> :
     <>
       <span className="card-value-suit top">{info.value}{info.suit}</span>
       <span className="card-suit">{info.suit}</span>
