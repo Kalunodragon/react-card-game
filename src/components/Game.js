@@ -4,6 +4,8 @@ import Card from "./Card";
 import Skipped from "./Skipped";
 
 function Game({ deck, players }){
+  // const [deckOne, setDeckOne] = useState([])
+  // const [deckTwo, setDeckTwo] = useState([])
   const history = useHistory()
 
   const displayed = deck.map(card => {
