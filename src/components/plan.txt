@@ -49,8 +49,8 @@ ________________________________________________________________________________
     | | | SAMPLE CHECKLIST
 
     examples:
-    | ONULAK | WIP | Building Out Hand Component
-    | ONULAK | DONE | App.js
+    | ONULAK | WIP, TESTING, STARTING, HELP! | Building Out Hand Component
+    | ONULAK | FINISHED | App.js
 
     LIST BELOW:
       If there are questions please ask, also refer to the plan listed above for possible more info.
@@ -59,7 +59,7 @@ ________________________________________________________________________________
       This project might take a bit of time and will be a Async Project! Meaning people can work on it in their time.
       Together we can get this done!
 
-    | | | Fill in game rules in Home.js
+    | ONULAK | WIP | Fill in game rules in Home.js
     | | | Deck is split into two decks, Preferably every other card from the shuffle (though might not need to be every other card)
     | | | Hands are delt top(first) 5 cards from respective decks
     | | | Players hands screen. Shows current players cards in hand for selection of play
