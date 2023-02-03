@@ -46,7 +46,7 @@ ________________________________________________________________________________
     TO-DO LIST - This is all just prelim, If someone is able to clean this up and have it look nicer feel free to do so!
     | NAME | CURRENT STATE | TASK
 
-    | | | SAMPLE CHECKLIST
+    |  |  | SAMPLE CHECKLIST
 
     examples:
     | ONULAK | WIP, TESTING, STARTING, HELP! | Building Out Hand Component
@@ -60,26 +60,26 @@ ________________________________________________________________________________
       Together we can get this done!
 
     | ONULAK | WIP | Fill in game rules in Home.js
-    | | | Deck is split into two decks, Preferably every other card from the shuffle (though might not need to be every other card)
-    | | | Hands are delt top(first) 5 cards from respective decks
-    | | | Players hands screen. Shows current players cards in hand for selection of play
-    | | | Card can be played onto playing feild face down (card will be shown in show war screen)
+    |  |  | Deck is split into two decks, Preferably every other card from the shuffle (though might not need to be every other card)
+    |  |  | Hands are delt top(first) 5 cards from respective decks
+    | ONULAK | WIP | Players hands screen. Shows current players cards in hand for selection of play
+    |  |  | Card can be played onto playing feild face down (card will be shown in show war screen)
 
-    | | | Card selection, allow confirmation before sumbit. If another card is picked first selection is brought back to hand
-    | | | At beggining of turn hand is brought back up to 5 cards using the top(first) x number of cards
-    | | | Next Player Pass Screen ("Player x are you ready to go?" button to advance)
-    | | | Comparing Function that checks cards against one another, Handles War and winning player getting these new cards
-    | | | War function that lets players select which card will be comared in war, remaining cards will be the 3 face down cards
+    |  |  | Card selection, allow confirmation before sumbit. If another card is picked first selection is brought back to hand
+    |  |  | At beggining of turn hand is brought back up to 5 cards using the top(first) x number of cards
+    |  |  | Next Player Pass Screen ("Player x are you ready to go?" button to advance)
+    |  |  | Comparing Function that checks cards against one another, Handles War and winning player getting these new cards
+    |  |  | War function that lets players select which card will be comared in war, remaining cards will be the 3 face down cards
 
-    | | | Result handeling, Handles war and regular compare of cards and to whom the cards go after compare
+    |  |  | Result handeling, Handles war and regular compare of cards and to whom the cards go after compare
           This also handles shuffling the cards that are won before adding them to the bottom of the deck(s)
-    | | | Auto draw cards function that brings players back up to 5 cards after a round
-    | | | Deck Check, Sees if one of the players has all the cards or no cards left to play, activates win in this case
-    | | | Win screen, shows winner, shows number of turns that transpired. Has a replay button to play again (DECK is reruffled
+    |  |  | Auto draw cards function that brings players back up to 5 cards after a round
+    |  |  | Deck Check, Sees if one of the players has all the cards or no cards left to play, activates win in this case
+    |  |  | Win screen, shows winner, shows number of turns that transpired. Has a replay button to play again (DECK is reruffled
           and the game starts again with the opposite player being first)
-    | | | Turn tracker, keeps track of how many turns have gone by, also keeps track of which player is currently up
+    |  |  | Turn tracker, keeps track of how many turns have gone by, also keeps track of which player is currently up
 
-    | | | Credits screen that shows all Collaborators and a thanks for playing message. timeout after 30 seconds back to home screen
+    |  |  | Credits screen that shows all Collaborators and a thanks for playing message. timeout after 30 seconds back to home screen
           and or have a button to take people back to the home screen
-    | | | Styleing for both Computer pass and play and phone pass and play
-    | | | Deployment on GitHub to pages so game can be loaded on phone or computer without having to download the game
+    |  |  | Styleing for both Computer pass and play and phone pass and play
+    |  |  | Deployment on GitHub to pages so game can be loaded on phone or computer without having to download the game
