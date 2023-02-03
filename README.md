@@ -2,7 +2,7 @@
 
 This is a SPA made by students from Flatiron School. This was made using our knowledge based on our learning from Flatirons School.
 
-## New Collaborators!
+## New Collaborators! - PLEASE UPDATE COLLABORATORS SECTION AT BOTTOM!
 
 Please check out the `src/components/RULES.txt` and `src/components/plan.txt` files and familiarize youself with the project there.
 Also spend some time looking through the components and get a feel for how the application works. If you have questions reach out
