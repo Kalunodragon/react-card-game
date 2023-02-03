@@ -63,3 +63,19 @@ img{
   max-width: 100%;
   object-fit:cover;
 }
+
+.gameRules {
+  text-align: center;
+}
+
+.gameRulesSub {
+  text-align: center;
+}
+
+.rules {
+  width: 700px;
+}
+
+p {
+  text-align: center;
+}
