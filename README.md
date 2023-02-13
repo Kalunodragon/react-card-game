@@ -32,3 +32,5 @@ The page will reload when you make changes.
 ## Current Collaborators
 
 [Andrew Onulak](www.linkedin.com/in/andrew-onulak)
+
+[Andrew Smit](www.linkedin.com/in/andrewasmit/)
