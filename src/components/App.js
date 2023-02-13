@@ -9,6 +9,7 @@ function App() {
   const [players, setPlayers] = useState(0)
   const history = useHistory()
 
+  // This useEffect() is used to created the deck of cards for the game
   useEffect(() => {
     const values = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
     const suits = ["♥", "♦", "♠", "♣"];
@@ -17,6 +18,7 @@ function App() {
       for (let v = 0; v < values.length; v++) {
         const value = values[v];
         const suit = suits[s];
+        // cards are pushed individually here, they also have a power level for easy comparing later
         cards.push(
           {
              "value": value,
@@ -26,8 +28,11 @@ function App() {
         );
       } 
     }
+    // deck is logged before being shuffled
     console.log(cards)
+    // deck is set to a cloned, shuffled version of the whole deck
     setDeck([...cards].sort(()=> Math.random() > .5 ? 1 : -1))
+    // Variable that is watched here is for when a new shuffled deck is needed
   }, [newDeck])
 
   function updateDeck(){
