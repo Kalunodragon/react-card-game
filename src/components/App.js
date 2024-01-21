@@ -48,7 +48,7 @@ function App() {
     <div>
       <h1>5 In The Hand: War!</h1>
       <p>A card game designed and coded by Andrew Onulak, Andrew Smit, and Joshua Doud</p>
-      <button onClick={updateDeck}>New Deck {newDeck}</button>
+      <button onClick={updateDeck}>New Deck</button>
       <Switch>
         <Route exact path="/">
           <Home onHandleClick={playerUpdate} players={players}/>
