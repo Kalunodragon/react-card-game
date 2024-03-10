@@ -7,14 +7,14 @@ home screen is shown showing rules and if players are ready to play
 
 deck is shuffled and split into two decks
 these are then given to each player
-create seperate playing hands - 5 cards off the top of each deck respectivly
+create separate playing hands - 5 cards off the top of each deck respectively
   when a player is up have the hand show the current players hand
     once a card is selected have the window confirm if thats the card they want to play
     once confirmed have the card be played and then load the next player pass screen
 
 next player pass screen has a button that when clicked progresses to the next player
   this then shows the hand of the next player with all the same options for the first player hand
-  once a card is seleced and confirmed then the show war screen comes up
+  once a card is selected and confirmed then the show war screen comes up
 
 the Show war screen shows what player one decided to play and what player two decided to play
   these cards are then compared and the player with the higher power wins the round and both cards are added to their deck
@@ -29,7 +29,7 @@ the Show war screen shows what player one decided to play and what player two de
         all cards on table are returned to original player in a shuffled state to the bottom of their decks
         5 new cards are drawn per player to replenish hand
 
-  after compare winner takes cards (these are added shuffeld to the bottom of the winner deck) hands are replenished back to 5 cards in hand
+  after compare winner takes cards (these are added shuffled to the bottom of the winner deck) hands are replenished back to 5 cards in hand
 
   decks are checked to see that there are still cards playable from each deck
     if yes then play continues
@@ -37,9 +37,9 @@ the Show war screen shows what player one decided to play and what player two de
       win screen with player is shown
         total number of Battles/turns is shown
         option to reset and play again is given
-          deck is reshuffled and redelt
+          deck is reshuffled and re-delt
 
-    if players dont play again have the credits shown and a button to take players back to the main home screen
+    if players don't play again have the credits shown and a button to take players back to the main home screen
 
 _____________________________________________________________________________________________________________________________________________________
 
@@ -54,7 +54,7 @@ ________________________________________________________________________________
 
     LIST BELOW:
       If there are questions please ask, also refer to the plan listed above for possible more info.
-      If needed please rewrite clerification of plan in with the plan.
+      If needed please rewrite clarification of plan in with the plan.
       Please remember to update list while working, commit and push often, update discord about tasks that you are working on!
       This project might take a bit of time and will be a Async Project! Meaning people can work on it in their time.
       Together we can get this done!
@@ -63,23 +63,23 @@ ________________________________________________________________________________
     |  |  | Deck is split into two decks, Preferably every other card from the shuffle (though might not need to be every other card)
     |  |  | Hands are delt top(first) 5 cards from respective decks
     | ONULAK | WIP | Players hands screen. Shows current players cards in hand for selection of play
-    |  |  | Card can be played onto playing feild face down (card will be shown in show war screen)
+    |  |  | Card can be played onto playing felid face down (card will be shown in show war screen)
 
-    |  |  | Card selection, allow confirmation before sumbit. If another card is picked first selection is brought back to hand
-    |  |  | At beggining of turn hand is brought back up to 5 cards using the top(first) x number of cards
+    |  |  | Card selection, allow confirmation before submit. If another card is picked first selection is brought back to hand
+    |  |  | At beginning of turn hand is brought back up to 5 cards using the top(first) x number of cards
     |  |  | Next Player Pass Screen ("Player x are you ready to go?" button to advance)
     |  |  | Comparing Function that checks cards against one another, Handles War and winning player getting these new cards
-    |  |  | War function that lets players select which card will be comared in war, remaining cards will be the 3 face down cards
+    |  |  | War function that lets players select which card will be compared in war, remaining cards will be the 3 face down cards
 
-    |  |  | Result handeling, Handles war and regular compare of cards and to whom the cards go after compare
+    |  |  | Result handling, Handles war and regular compare of cards and to whom the cards go after compare
           This also handles shuffling the cards that are won before adding them to the bottom of the deck(s)
     |  |  | Auto draw cards function that brings players back up to 5 cards after a round
     |  |  | Deck Check, Sees if one of the players has all the cards or no cards left to play, activates win in this case
-    |  |  | Win screen, shows winner, shows number of turns that transpired. Has a replay button to play again (DECK is reruffled
+    |  |  | Win screen, shows winner, shows number of turns that transpired. Has a replay button to play again (DECK is reshuffled
           and the game starts again with the opposite player being first)
     |  |  | Turn tracker, keeps track of how many turns have gone by, also keeps track of which player is currently up
 
     |  |  | Credits screen that shows all Collaborators and a thanks for playing message. timeout after 30 seconds back to home screen
           and or have a button to take people back to the home screen
-    |  |  | Styleing for both Computer pass and play and phone pass and play
+    |  |  | Styling for both Computer pass and play and phone pass and play
     |  |  | Deployment on GitHub to pages so game can be loaded on phone or computer without having to download the game
