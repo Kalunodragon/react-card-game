@@ -51,7 +51,7 @@ function App() {
       <Stack spacing={1} alignItems="center">
         <Typography variant="h4" component="h1">5 In The Hand: War!</Typography>
         <Typography variant="body1" align="center">
-          A card game designed and coded by Andrew Onulak, Andrew Smit, and Joshua Doud
+          A card game designed and coded by Andrew Onulak
         </Typography>
         <Button variant="contained" onClick={updateDeck}>New Deck</Button>
       </Stack>

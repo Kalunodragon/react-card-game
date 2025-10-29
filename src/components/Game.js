@@ -23,6 +23,7 @@ function Game({ deck, players }){
   const [tableCards, setTableCards] = useState([]) // array of {owner: 1|2, card}
   const [message, setMessage] = useState("Click Deal to start the round")
   const [phase, setPhase] = useState("idle") // idle | deal | select | reveal | resolve
+  const [currentPlayer, setCurrentPlayer] = useState(1) // 1 or 2 during select
 
   useEffect(() => {
     if (!deck || deck.length === 0) return
@@ -41,6 +42,7 @@ function Game({ deck, players }){
     setTableCards([])
     setMessage("Click Deal to start the round")
     setPhase("idle")
+    setCurrentPlayer(1)
   }
 
   // Deal up to 5 cards to each hand
@@ -63,17 +65,37 @@ function Game({ deck, players }){
     })
 
     setTableCards([])
-    setMessage("Select a card from each hand")
+    setMessage("Player 1: select a card")
     setPhase("select")
+    setCurrentPlayer(1)
   }
 
   function handleSelect(player, index){
     if (phase !== "select") return
-    if (player === 1) setPlayerOneSelected(index)
-    if (player === 2) {
+    // Only current player can select
+    if (!isSinglePlayer && player !== currentPlayer) return
+
+    if (player === 1) {
+      setPlayerOneSelected(index)
+      if (isSinglePlayer) {
+        // Computer picks and then auto-play
+        if (playerTwoHand.length > 0){
+          const idx = Math.floor(Math.random() * playerTwoHand.length)
+          setPlayerTwoSelected(idx)
+          // allow state to settle then play
+          setTimeout(() => handlePlay(), 0)
+        }
+      } else {
+        // Two player: switch to player 2
+        setCurrentPlayer(2)
+        setMessage("Player 2: select a card")
+      }
+    } else if (player === 2) {
       // Prevent manual selection for computer in single player
       if (isSinglePlayer) return
       setPlayerTwoSelected(index)
+      // After P2 selects, auto-play
+      setTimeout(() => handlePlay(), 0)
     }
   }
 
@@ -110,6 +132,16 @@ function Game({ deck, players }){
       // simple placeholder split
       setPlayerOneDeck(d => [...d, winnings[0]])
       if (winnings[1]) setPlayerTwoDeck(d => [...d, winnings[1]])
+    }
+
+    // In single player, auto-deal next hand after 3 seconds
+    if (isSinglePlayer){
+      setTimeout(() => {
+        // Only auto-deal if still in resolve phase
+        if (phase === "resolve") {
+          handleDeal()
+        }
+      }, 3000)
     }
   }
 
@@ -151,18 +183,30 @@ function Game({ deck, players }){
       <Stack direction="row" spacing={3} alignItems="flex-start" flexWrap="wrap">
         <div>
           <Typography variant="subtitle1">Player 1 Deck: {playerOneDeck.length}</Typography>
-          <Hand cards={playerOneHand} onSelect={(i) => handleSelect(1, i)} selectedIndex={playerOneSelected} />
+          <Hand
+            cards={playerOneHand}
+            onSelect={(i) => handleSelect(1, i)}
+            selectedIndex={playerOneSelected}
+            faceUp={isSinglePlayer ? true : (phase === "select" && currentPlayer === 1)}
+            disabled={!(phase === "select" && (isSinglePlayer || currentPlayer === 1))}
+          />
         </div>
 
         <div>
           <Typography variant="subtitle1">{isSinglePlayer ? "Computer" : "Player 2"} Deck: {playerTwoDeck.length}</Typography>
-          <Hand cards={playerTwoHand} onSelect={(i) => handleSelect(2, i)} selectedIndex={playerTwoSelected} />
+          <Hand
+            cards={playerTwoHand}
+            onSelect={(i) => handleSelect(2, i)}
+            selectedIndex={playerTwoSelected}
+            faceUp={isSinglePlayer ? false : (phase === "select" && currentPlayer === 2)}
+            disabled={isSinglePlayer ? true : !(phase === "select" && currentPlayer === 2)}
+          />
         </div>
       </Stack>
 
       <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
         <Button variant="contained" onClick={handleDeal} disabled={phase !== "idle" && phase !== "resolve"}>Deal</Button>
-        <Button variant="outlined" onClick={handlePlay} disabled={!bothSelected}>Play Selected</Button>
+        {/* Play button no longer needed for two-player; auto after second selection. Keep for debug if desired */}
       </Stack>
 
       <div style={{ marginTop: 10 }}>
