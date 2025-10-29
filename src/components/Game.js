@@ -24,6 +24,7 @@ function Game({ deck, players }){
   const [message, setMessage] = useState("Click Deal to start the round")
   const [phase, setPhase] = useState("idle") // idle | deal | select | reveal | resolve
   const [currentPlayer, setCurrentPlayer] = useState(1) // 1 or 2 during select
+  const [warActive, setWarActive] = useState(false)
 
   useEffect(() => {
     if (!deck || deck.length === 0) return
@@ -43,6 +44,7 @@ function Game({ deck, players }){
     setMessage("Click Deal to start the round")
     setPhase("idle")
     setCurrentPlayer(1)
+    setWarActive(false)
   }
 
   // Deal up to 5 cards to each hand
@@ -106,36 +108,69 @@ function Game({ deck, players }){
     // Move selected cards to table
     const p1Card = playerOneHand[playerOneSelected]
     const p2Card = playerTwoHand[playerTwoSelected]
-    setTableCards([{ owner: 1, card: p1Card }, { owner: 2, card: p2Card }])
 
-    // Remove selected cards from hands
-    setPlayerOneHand(h => h.filter((_, i) => i !== playerOneSelected))
-    setPlayerTwoHand(h => h.filter((_, i) => i !== playerTwoSelected))
+    const newP1Hand = playerOneHand.filter((_, i) => i !== playerOneSelected)
+    const newP2Hand = playerTwoHand.filter((_, i) => i !== playerTwoSelected)
+
+    setTableCards(prev => [...prev, { owner: 1, card: p1Card }, { owner: 2, card: p2Card }])
+
+    // Apply hand updates
+    setPlayerOneHand(newP1Hand)
+    setPlayerTwoHand(newP2Hand)
     setPlayerOneSelected(null)
     setPlayerTwoSelected(null)
     setPhase("resolve")
 
-    // Resolve winner (no war yet; tie treated as war placeholder)
+    // Resolve winner with war rules
     if (p1Card.power > p2Card.power){
-      setMessage("Player 1 wins the battle")
-      // winner gets table cards to bottom in random order
-      const winnings = shuffleArray([{ owner: 1, card: p1Card }, { owner: 2, card: p2Card }]).map(t => t.card)
-      setPlayerOneDeck(d => [...d, ...winnings])
+      if (warActive){
+        setMessage("Player 1 wins the war!")
+        // winner takes entire table and both remaining hands
+        setPlayerOneDeck(d => [...d, ...shuffleArray([...tableCards, { owner: 1, card: p1Card }, { owner: 2, card: p2Card }]).map(t => t.card), ...shuffleArray(playerOneHand).map(c=>c), ...shuffleArray(playerTwoHand).map(c=>c)])
+        setPlayerOneHand([])
+        setPlayerTwoHand([])
+        setWarActive(false)
+      } else {
+        setMessage("Player 1 wins the battle")
+        const winnings = shuffleArray([{ owner: 1, card: p1Card }, { owner: 2, card: p2Card }]).map(t => t.card)
+        setPlayerOneDeck(d => [...d, ...winnings])
+      }
     } else if (p2Card.power > p1Card.power){
-      setMessage("Player 2 wins the battle")
-      const winnings = shuffleArray([{ owner: 1, card: p1Card }, { owner: 2, card: p2Card }]).map(t => t.card)
-      setPlayerTwoDeck(d => [...d, ...winnings])
+      if (warActive){
+        setMessage("Player 2 wins the war!")
+        setPlayerTwoDeck(d => [...d, ...shuffleArray([...tableCards, { owner: 1, card: p1Card }, { owner: 2, card: p2Card }]).map(t => t.card), ...shuffleArray(playerOneHand).map(c=>c), ...shuffleArray(playerTwoHand).map(c=>c)])
+        setPlayerOneHand([])
+        setPlayerTwoHand([])
+        setWarActive(false)
+      } else {
+        setMessage("Player 2 wins the battle")
+        const winnings = shuffleArray([{ owner: 1, card: p1Card }, { owner: 2, card: p2Card }]).map(t => t.card)
+        setPlayerTwoDeck(d => [...d, ...winnings])
+      }
     } else {
-      setMessage("Tie! (War handling coming next)")
-      // For now: put cards back to bottoms randomly split between players
-      const winnings = shuffleArray([{ owner: 1, card: p1Card }, { owner: 2, card: p2Card }]).map(t => t.card)
-      // simple placeholder split
-      setPlayerOneDeck(d => [...d, winnings[0]])
-      if (winnings[1]) setPlayerTwoDeck(d => [...d, winnings[1]])
+      // Tie -> Simple War flow
+      if (warActive){
+        // repeated tie: return all in-play cards and both hands to original decks
+        setMessage("Another tie! Returning cards to original decks.")
+        const fullTable = [...tableCards, { owner: 1, card: p1Card }, { owner: 2, card: p2Card }]
+        const p1Returns = shuffleArray([...fullTable.filter(t => t.owner === 1).map(t => t.card), ...newP1Hand])
+        const p2Returns = shuffleArray([...fullTable.filter(t => t.owner === 2).map(t => t.card), ...newP2Hand])
+        setPlayerOneDeck(d => [...d, ...p1Returns])
+        setPlayerTwoDeck(d => [...d, ...p2Returns])
+        setPlayerOneHand([])
+        setPlayerTwoHand([])
+        setWarActive(false)
+      } else {
+        setMessage("War! Each player select another card")
+        setWarActive(true)
+        setPhase("select")
+        setCurrentPlayer(1)
+        return
+      }
     }
 
     // In single player, auto-deal next hand after 3 seconds
-    if (isSinglePlayer){
+    if (isSinglePlayer && !warActive){
       setTimeout(() => {
         // Only auto-deal if still in resolve phase
         if (phase === "resolve") {
@@ -148,6 +183,7 @@ function Game({ deck, players }){
   function shuffleArray(arr){
     return [...arr].sort(() => Math.random() > .5 ? 1 : -1)
   }
+
 
   // Computer auto-select in one player mode, then auto-play
   useEffect(() => {
