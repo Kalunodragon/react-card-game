@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import Card from "./Card";
 import Skipped from "./Skipped";
 import Hand from "./Hand";
+import { Button, Container, Stack, Typography } from "@mui/material";
 
 function Game({ deck, players }){
   const history = useHistory()
@@ -139,38 +140,40 @@ function Game({ deck, players }){
   if(players === 0) return <Skipped />
 
   return(
-    <>
-      <h1>Testing the Game with {players === '1' ? "1 Player" : "2 Players"}!</h1>
-      <button onClick={() => history.push("/")}>HOME</button>
+    <Container maxWidth="md" style={{ paddingTop: 8, paddingBottom: 16 }}>
+      <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 1 }}>
+        <Typography variant="h6">Testing the Game with {players === '1' ? "1 Player" : "2 Players"}!</Typography>
+        <Button onClick={() => history.push("/")}>HOME</Button>
+      </Stack>
 
-      <p>{message}</p>
+      <Typography variant="body1" sx={{ mb: 1 }}>{message}</Typography>
 
-      <div style={{ display: "flex", gap: 20, alignItems: "flex-start", flexWrap: "wrap" }}>
+      <Stack direction="row" spacing={3} alignItems="flex-start" flexWrap="wrap">
         <div>
-          <h3>Player 1 Deck: {playerOneDeck.length}</h3>
+          <Typography variant="subtitle1">Player 1 Deck: {playerOneDeck.length}</Typography>
           <Hand cards={playerOneHand} onSelect={(i) => handleSelect(1, i)} selectedIndex={playerOneSelected} />
         </div>
 
         <div>
-          <h3>{isSinglePlayer ? "Computer" : "Player 2"} Deck: {playerTwoDeck.length}</h3>
+          <Typography variant="subtitle1">{isSinglePlayer ? "Computer" : "Player 2"} Deck: {playerTwoDeck.length}</Typography>
           <Hand cards={playerTwoHand} onSelect={(i) => handleSelect(2, i)} selectedIndex={playerTwoSelected} />
         </div>
-      </div>
+      </Stack>
+
+      <Stack direction="row" spacing={2} sx={{ mt: 1 }}>
+        <Button variant="contained" onClick={handleDeal} disabled={phase !== "idle" && phase !== "resolve"}>Deal</Button>
+        <Button variant="outlined" onClick={handlePlay} disabled={!bothSelected}>Play Selected</Button>
+      </Stack>
 
       <div style={{ marginTop: 10 }}>
-        <button onClick={handleDeal} disabled={phase !== "idle" && phase !== "resolve"}>Deal</button>
-        <button onClick={handlePlay} disabled={!bothSelected}>Play Selected</button>
-      </div>
-
-      <div style={{ marginTop: 10 }}>
-        <h3>Table</h3>
+        <Typography variant="subtitle1">Table</Typography>
         <div className="card-container">
           {tableCards.map((t, idx) => (
             <Card key={idx} info={t.card} forceFaceUp={true} />
           ))}
         </div>
       </div>
-    </>
+    </Container>
   )
 }
 

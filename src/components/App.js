@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import Home from "./Home";
 import Game from "./Game";
+import { Container, Typography, Button, Stack, CssBaseline } from "@mui/material";
 
 function App() {
   const [deck, setDeck] = useState([])
@@ -45,10 +46,15 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>5 In The Hand: War!</h1>
-      <p>A card game designed and coded by Andrew Onulak, Andrew Smit, and Joshua Doud</p>
-      <button onClick={updateDeck}>New Deck</button>
+    <Container maxWidth="md" style={{ paddingTop: 16, paddingBottom: 16 }}>
+      <CssBaseline />
+      <Stack spacing={1} alignItems="center">
+        <Typography variant="h4" component="h1">5 In The Hand: War!</Typography>
+        <Typography variant="body1" align="center">
+          A card game designed and coded by Andrew Onulak, Andrew Smit, and Joshua Doud
+        </Typography>
+        <Button variant="contained" onClick={updateDeck}>New Deck</Button>
+      </Stack>
       <Switch>
         <Route exact path="/">
           <Home onHandleClick={playerUpdate} players={players}/>
@@ -57,7 +63,7 @@ function App() {
           <Game deck={deck} players={players}/>
         </Route>
       </Switch>
-    </div>
+    </Container>
   )
 }
 

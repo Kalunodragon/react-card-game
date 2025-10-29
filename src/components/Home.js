@@ -1,4 +1,5 @@
 import React from "react";
+import { Button, Stack, Typography } from "@mui/material";
 
 function Home({ onHandleClick, players }){
 
@@ -8,22 +9,26 @@ function Home({ onHandleClick, players }){
 
   return(
     <>
-      <h1>How many people are playing?</h1>
-      {players === 0 ? null : <h1>Seems like someone already started a {players === '1' ? "One Player" : "Two Player"} game!</h1>}
-      <button onClick={handleStartClick} name="1">ONE PLAYER!</button>
-      <button onClick={handleStartClick} name="2">TWO PLAYERS!</button>
+      <Typography variant="h5" component="h2" align="center">How many people are playing?</Typography>
+      {players === 0 ? null : (
+        <Typography variant="h6" align="center">Seems like someone already started a {players === '1' ? "One Player" : "Two Player"} game!</Typography>
+      )}
+      <Stack direction="row" spacing={2} justifyContent="center" sx={{ mt: 1, mb: 2 }}>
+        <Button variant="contained" onClick={handleStartClick} name="1">ONE PLAYER</Button>
+        <Button variant="outlined" onClick={handleStartClick} name="2">TWO PLAYERS</Button>
+      </Stack>
       
       {/* written as physical play, will need rewording */}
       <div className="rules">
-        <h1 className="gameRules">- Game Rules -</h1>
-        <h3 className="gameRulesSub">- Objective -</h3>
+        <Typography className="gameRules" variant="h5">- Game Rules -</Typography>
+        <Typography className="gameRulesSub" variant="h6">- Objective -</Typography>
         <p>The objective of this game is to have all of the cards in your possession at the end of the game.</p>
-        <h3 className="gameRulesSub">- How the deck is prepared -</h3>
+        <Typography className="gameRulesSub" variant="h6">- How the deck is prepared -</Typography>
         <ul>
           <li>Using a standard deck of playing cards, shuffle them thoroughly</li>
           <li>Deal out the entire deck to the two players</li>
         </ul>
-        <h3 className="gameRulesSub">- Playing the game -</h3>
+        <Typography className="gameRulesSub" variant="h6">- Playing the game -</Typography>
         <ol>
           <li>Both players draw 5 cards from their deck to use as their hand.</li>
           <li>Both players then choose a card from their hand to play.</li>
@@ -42,7 +47,7 @@ function Home({ onHandleClick, players }){
           <li>The game continues until one player has all the cards in their possession.</li>
           <li>Once a player collects all the cards they are considered the winner!</li>
         </ol>
-        <h3 className="gameRulesSub">- Special Case -</h3>
+        <Typography className="gameRulesSub" variant="h6">- Special Case -</Typography>
         <ul>
           <li>
             In the event that war happens when players have less than 5 cards in their hand. The player with the
