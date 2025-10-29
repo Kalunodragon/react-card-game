@@ -1,16 +1,21 @@
 import React, { useState } from "react";
 import CardBack from "../FreeStockCardImage.jpg"
 
-function Card({ info }){
+function Card({ info, forceFaceUp = false, isSelected = false, onClick }){
   const [clicked, setClicked] = useState(true)
 
-  const shown = clicked === false ? "card hidden" : `card ${info.suit}`
+  const faceUp = forceFaceUp ? true : clicked
+  const shown = faceUp === false ? `card hidden${isSelected ? " selected" : ""}` : `card ${info.suit}${isSelected ? " selected" : ""}`
 
   function handleClicked(){
+    if (onClick){
+      onClick()
+      return
+    }
     setClicked(state => !state)
   }
 
-  const cardInfo = clicked === false ?
+  const cardInfo = faceUp === false ?
     <img src={CardBack} alt="Back of the card"/> :
     <>
       <span className="card-value-suit top">{info.value}{info.suit}</span>

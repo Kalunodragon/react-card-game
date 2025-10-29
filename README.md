@@ -33,6 +33,6 @@ The page will reload when you make changes.
 
 [Andrew Onulak](https://www.linkedin.com/in/andrew-onulak/)
 
-[Andrew Smit](https://www.linkedin.com/in/andrewasmit/)
+<!-- [Andrew Smit](https://www.linkedin.com/in/andrewasmit/)
 
-[Joshua Doud](https://www.linkedin.com/in/joshua-doud-jr-/)
+[Joshua Doud](https://www.linkedin.com/in/joshua-doud-jr-/) -->
